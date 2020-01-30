@@ -61,3 +61,12 @@
   (remove-if-not
    #'(lambda (cd) (equalp (getf cd :artist) artist))
    *db*))
+
+(defun foo (&key a b c)
+  (progn
+    (format t (if a "has a~%" "no a~%"))
+    (format t (if b "has b~%" "no b~%"))
+    (format t (if c "has c~%" "no c~%"))))
+
+(foo :a 1 :c 2)
+(foo)
